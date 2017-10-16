@@ -1,0 +1,69 @@
+{
+  "banks": [
+    {
+      "id": 1,
+      "title": "Сбербанк"
+    },
+    {
+      "id": 2,
+      "title": "Альфабанк"
+    },
+    {
+      "id": 3,
+      "title": "ВТБ"
+    },
+    {
+      "id": 4,
+      "title": "Тинькофф"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "amount": "1050",
+      "bankId": 1
+    },
+    {
+      "id": 2,
+      "amount": "100",
+      "bankId": 2
+    },
+    {
+      "id": 3,
+      "amount": "150",
+      "bankId": 1
+    },
+    {
+      "id": 4,
+      "amount": "200",
+      "bankId": 3
+    },
+    {
+      "id": 5,
+      "amount": "300",
+      "bankId": 4
+    },
+    {
+      "id": 6,
+      "amount": "2500",
+      "bankId": 1
+    },
+    {
+      "id": 7,
+      "amount": "1000",
+      "bankId": 4
+    },
+    {
+      "id": 8,
+      "amount": "3000",
+      "bankId": 3
+    }
+  ],
+  "login": {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdHR0bmV3Lmhlcm9rdWFwcC5jb20vZ2V0dXNlciIsImlhdCI6MTUwODEzMDg1OCwiZXhwIjoxNTA4MTM0NDU4LCJuYmYiOjE1MDgxMzA4NTgsImp0aSI6IllZTzZ3aWNySHpoUDMyd3MiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.IURky6KUl-pQFTKUxAxnQOtuUS4QtX8bD3r1O13DQG8"},
+  "add": {
+    "ok": 1
+  },
+  "delete": {
+    "ok": 1
+  }
+}

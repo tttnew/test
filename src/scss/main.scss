@@ -1,0 +1,90 @@
+@import "partials/reset";
+$colorGreen: #4caf50;
+$colorGreenDarker: #45a049;
+$colorGrey: #333;
+$colorGreyMiddle: #f2f2f2;
+$colorWhite: white;
+
+$a-tags: "a, a:active, a:hover, a:visited";
+
+nav {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: $colorGrey;
+    color: $colorWhite;
+  }
+
+  li {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    float: left;
+    &:last-of-type {
+      cursor: pointer;
+      float: right;
+    }
+    #{$a-tags} {
+      display: block;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: $colorWhite;
+      &:hover {
+        color: $colorWhite;
+      }
+      &.active {
+        background-color: $colorGreen;
+      }
+    }
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {
+    background-color: $colorGreyMiddle;
+  }
+  th {
+    font-weight: bold;
+  }
+}
+.form {
+  border-radius: 5px;
+  background-color: $colorGreyMiddle;
+  padding: 20px;
+  width:60%;
+  margin:0 auto;
+  input,
+  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    background-color: $colorGreen;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: $colorGreenDarker;
+  }
+}
