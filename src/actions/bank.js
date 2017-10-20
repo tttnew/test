@@ -1,5 +1,6 @@
 import * as types from "../constants/actionTypes";
 import urls from "../constants/urls";
+import { BANKS_IDS, BANKS_HASH } from "../constants/storageConstants";
 
 export const requestBanks = () => {
   return {
@@ -28,6 +29,9 @@ export const fetchBanks = () => {
       .then(json => {
         if (json) {
           dispatch(receiveBanksSuccess(json));
+          let { byId, byHash } = getState().bank;
+          localStorage.setItem(BANKS_IDS, JSON.stringify(byId));
+          localStorage.setItem(BANKS_HASH, JSON.stringify(byHash));
         } else {
           dispatch(receiveBanksError());
         }

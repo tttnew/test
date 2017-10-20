@@ -1,5 +1,6 @@
 import * as types from "../constants/actionTypes";
 import urls from "../constants/urls";
+import { TRANSACTIONS } from "../constants/storageConstants";
 
 export const requestTransactions = () => {
   return {
@@ -45,6 +46,7 @@ export const fetchTransactions = () => {
       .then(json => {
         if (json) {
           dispatch(receiveTransactionsSuccess(json));
+          localStorage.setItem(TRANSACTIONS, JSON.stringify(json));
         } else {
           dispatch(receiveTransactionsError());
         }
@@ -55,14 +57,22 @@ export const fetchTransactions = () => {
 export const addTransactionsRequest = transaction => {
   return function(dispatch, getState) {
     dispatch(requestTransactions());
-    return fetch(urls.add)
+    return fetch(urls.add, {
+      method: "POST",
+      body: JSON.stringify(transaction),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
       .then(
         response => response.json(),
         error => dispatch(receiveTransactionsError(error))
       )
       .then(json => {
-        if (json.ok) {
-          dispatch(addTransaction(transaction));
+        if (json) {
+          dispatch(addTransaction(json));
+          let { transaction } = getState();
+          localStorage.setItem(TRANSACTIONS, JSON.stringify(transaction.data));
         } else {
           dispatch(receiveTransactionsError());
         }
@@ -81,6 +91,8 @@ export const deleteTransactionRequest = id => {
       .then(json => {
         if (json.ok) {
           dispatch(deleteTransaction(id));
+          let { transaction } = getState();
+          localStorage.setItem(TRANSACTIONS, JSON.stringify(transaction.data));
         } else {
           dispatch(receiveTransactionsError());
         }

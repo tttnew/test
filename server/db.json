@@ -57,9 +57,41 @@
       "id": 8,
       "amount": "3000",
       "bankId": 3
+    },
+    {
+      "amount": 100,
+      "bankId": 2,
+      "id": 9
+    },
+    {
+      "amount": 200,
+      "bankId": 2,
+      "id": 10
+    },
+    {
+      "amount": 50,
+      "bankId": 2,
+      "id": 11
+    },
+    {
+      "amount": 100,
+      "bankId": 3,
+      "id": 12
+    },
+    {
+      "amount": 100,
+      "bankId": 1,
+      "id": 13
+    },
+    {
+      "amount": 50,
+      "bankId": 2,
+      "id": 14
     }
   ],
-  "login": {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdHR0bmV3Lmhlcm9rdWFwcC5jb20vZ2V0dXNlciIsImlhdCI6MTUwODEzMDg1OCwiZXhwIjoxNTA4MTM0NDU4LCJuYmYiOjE1MDgxMzA4NTgsImp0aSI6IllZTzZ3aWNySHpoUDMyd3MiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.IURky6KUl-pQFTKUxAxnQOtuUS4QtX8bD3r1O13DQG8"},
+  "login": {
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdHR0bmV3Lmhlcm9rdWFwcC5jb20vZ2V0dXNlciIsImlhdCI6MTUwODEzMDg1OCwiZXhwIjoxNTA4MTM0NDU4LCJuYmYiOjE1MDgxMzA4NTgsImp0aSI6IllZTzZ3aWNySHpoUDMyd3MiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.IURky6KUl-pQFTKUxAxnQOtuUS4QtX8bD3r1O13DQG8"
+  },
   "add": {
     "ok": 1
   },

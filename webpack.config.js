@@ -1,6 +1,6 @@
 var webpack = require("webpack");
 var path = require("path");
-var BUILD_DIR = path.resolve(__dirname, "public/");
+var BUILD_DIR = path.resolve(__dirname, "server/public/");
 var APP_DIR = path.resolve(__dirname, "src/");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
