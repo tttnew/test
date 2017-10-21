@@ -11,28 +11,30 @@ module.exports = {
     filename: "main.js"
   },
   module: {
-    rules: [
-      /*
-    your other rules for JavaScript transpiling go in here
-    */
+    rules:[
       {
-        test: /\.jsx?/,
-        include: APP_DIR,
-        loader: "babel-loader"
-      },
-      {
-        // regular css files
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          loader: "css-loader?importLoaders=1"
-        })
-      },
-      {
-        // sass / scss loader for webpack
-        test: /\.(sass|scss)$/,
-        loader: ExtractTextPlugin.extract(["css-loader", "sass-loader"])
+          test: /.\js$/,
+          use: ['babel-loader'],
+          exclude:[/node_modules/],
+      },{
+          test: /\.scss$/,
+          use:ExtractTextPlugin.extract({
+            use: [{
+              loader: "css-loader"
+          }, {
+              loader: "sass-loader"
+          }],
+          // use style-loader in development
+          fallback: "style-loader"
+          })
+      },{
+          test: /.\css$/,
+          use:ExtractTextPlugin.extract({
+              fallback:'style-loader',
+              use: 'css-loader'
+          }),
       }
-    ]
+  ]
   },
   plugins: [
     new ExtractTextPlugin("main.css")
