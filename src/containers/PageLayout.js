@@ -1,9 +1,8 @@
 import React from "react";
-import Navigation from "./Navigation";
 
 const PageLayout = ({ children }) => (
   <div>
-    <Navigation />
+    <span />
     {children}
   </div>
 );

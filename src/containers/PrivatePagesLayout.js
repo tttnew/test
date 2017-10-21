@@ -2,12 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Route, withRouter, Redirect } from "react-router-dom";
+import Navigation from "./Navigation";
 
-let PrivateRoute = props =>
-  props.isLogin ? (
-    <Route component={props.component} exact={props.exact} path={props.path} />
-  ) : (
+let PrivatePagesLayout = ({ children, isLogin }) =>
+  !isLogin ? (
     <Redirect to="/login" />
+  ) : (
+    <div>
+      <Navigation />
+      {children}
+    </div>
   );
 const mapStateToProps = state => {
   return {
@@ -15,6 +19,6 @@ const mapStateToProps = state => {
   };
 };
 
-PrivateRoute = withRouter(connect(mapStateToProps)(PrivateRoute));
+PrivatePagesLayout = withRouter(connect(mapStateToProps)(PrivatePagesLayout));
 
-export default PrivateRoute;
+export default PrivatePagesLayout;

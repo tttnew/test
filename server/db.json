@@ -87,6 +87,16 @@
       "amount": 50,
       "bankId": 2,
       "id": 14
+    },
+    {
+      "amount": 123,
+      "bankId": 1,
+      "id": 15
+    },
+    {
+      "amount": 200,
+      "bankId": 2,
+      "id": 16
     }
   ],
   "login": {

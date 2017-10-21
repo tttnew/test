@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logOut } from "../actions/auth";
 
 let Navigation = withRouter(({ isLogin, logoutHandler, location }) => {
-  return !isLogin ? null : (
+  return (
     <nav>
       <ul>
         {location.pathname != "/add" && (
@@ -31,11 +31,7 @@ let Navigation = withRouter(({ isLogin, logoutHandler, location }) => {
     </nav>
   );
 });
-const mapStateToProps = state => {
-  return {
-    isLogin: state.auth.isLogin
-  };
-};
+
 const mapDispatchToProps = dispatch => {
   return {
     logoutHandler: () => {
@@ -43,8 +39,6 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
-Navigation = withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(Navigation)
-);
+Navigation = withRouter(connect(null, mapDispatchToProps)(Navigation));
 
 export default Navigation;
