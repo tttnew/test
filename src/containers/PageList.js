@@ -5,6 +5,7 @@ import {
 } from "../actions/transaction";
 import { fetchBanks } from "../actions/bank";
 import { connect } from "react-redux";
+import PrivatePagesLayout from "./PrivatePagesLayout";
 
 class PageList extends Component {
   componentDidMount() {
@@ -27,7 +28,7 @@ class PageList extends Component {
     } = this.props;
 
     return (
-      <div>
+      <PrivatePagesLayout>
         <table>
           <thead>
             <tr>
@@ -46,10 +47,13 @@ class PageList extends Component {
                   <td>
                     {isFetchingBanks
                       ? "...LOADING"
-                      : banksByHash[item.bankId]?banksByHash[item.bankId].title:"error"}
+                      : banksByHash[item.bankId]
+                        ? banksByHash[item.bankId].title
+                        : "error"}
                   </td>
                   <td>
-                    <span className="cursorPointer"
+                    <span
+                      className="cursorPointer"
                       onClick={() => {
                         let r = window.confirm("Удалить запись?");
                         if (r == true) {
@@ -65,7 +69,7 @@ class PageList extends Component {
             })}
           </tbody>
         </table>
-      </div>
+      </PrivatePagesLayout>
     );
   }
 }
@@ -83,7 +87,7 @@ const mapStateToProps = state => {
 const mapDispatchToState = dispatch => {
   return {
     handlerDelete: id => {
-      dispatch(deleteTransactionRequest(id)).catch(error=> {
+      dispatch(deleteTransactionRequest(id)).catch(error => {
         alert("Ошибка");
       });
     },
