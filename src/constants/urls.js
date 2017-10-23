@@ -1,4 +1,4 @@
-const host = "";
+const host = "http://localhost:3004";
 const urls = {
   banks: host + "/banks",
   transactions: host + "/transactions",

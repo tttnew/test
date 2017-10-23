@@ -8,7 +8,7 @@ import PrivatePagesLayout from "./PrivatePagesLayout";
 class PageAdd extends Component {
   componentDidMount() {
     let { fetch, banks } = this.props;
-    if (banks.length === 0) {
+    if (!banks) {
       fetch();
     }
   }
@@ -47,14 +47,15 @@ class PageAdd extends Component {
               <label>Выберите банк</label>
               <input list="banks" name="bank" />
               <datalist id="banks" ref="banklist">
-                {banks.map(id => (
-                  <option
-                    value={banksByHash[id].title}
-                    data-id={id}
-                    key={id}
-                    id={banksByHash[id].title}
-                  />
-                ))}
+                {banks &&
+                  banks.map(id => (
+                    <option
+                      value={banksByHash[id].title}
+                      data-id={id}
+                      key={id}
+                      id={banksByHash[id].title}
+                    />
+                  ))}
               </datalist>
             </div>
             <div>

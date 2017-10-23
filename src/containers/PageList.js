@@ -10,10 +10,10 @@ import PrivatePagesLayout from "./PrivatePagesLayout";
 class PageList extends Component {
   componentDidMount() {
     let { fetchBanks, fetchTransactions, banks, transactions } = this.props;
-    if (banks.length === 0) {
+    if (!banks) {
       fetchBanks();
     }
-    if (transactions.length === 0) {
+    if (!transactions) {
       fetchTransactions();
     }
   }
@@ -39,34 +39,35 @@ class PageList extends Component {
             </tr>
           </thead>
           <tbody>
-            {transactions.map((item, index) => {
-              return (
-                <tr key={index}>
-                  <td>{item.id}</td>
-                  <td>{item.amount}</td>
-                  <td>
-                    {isFetchingBanks
-                      ? "...LOADING"
-                      : banksByHash[item.bankId]
-                        ? banksByHash[item.bankId].title
-                        : "error"}
-                  </td>
-                  <td>
-                    <span
-                      className="cursorPointer"
-                      onClick={() => {
-                        let r = window.confirm("Удалить запись?");
-                        if (r == true) {
-                          handlerDelete(item.id);
-                        }
-                      }}
-                    >
-                      Удалить
-                    </span>
-                  </td>
-                </tr>
-              );
-            })}
+            {transactions &&
+              transactions.map((item, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{item.id}</td>
+                    <td>{item.amount}</td>
+                    <td>
+                      {isFetchingBanks
+                        ? "...LOADING"
+                        : banksByHash[item.bankId]
+                          ? banksByHash[item.bankId].title
+                          : "error"}
+                    </td>
+                    <td>
+                      <span
+                        className="cursorPointer"
+                        onClick={() => {
+                          let r = window.confirm("Удалить запись?");
+                          if (r == true) {
+                            handlerDelete(item.id);
+                          }
+                        }}
+                      >
+                        Удалить
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       </PrivatePagesLayout>

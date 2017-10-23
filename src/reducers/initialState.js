@@ -7,12 +7,12 @@ import {
 
 export default {
   bank: {
-    byHash: JSON.parse(localStorage.getItem(BANKS_HASH)) || {},
-    byId: JSON.parse(localStorage.getItem(BANKS_IDS)) || [],
+    byHash: JSON.parse(localStorage.getItem(BANKS_HASH)) || null,
+    byId: JSON.parse(localStorage.getItem(BANKS_IDS)) || null,
     isFetching: false
   },
   transaction: {
-    data: JSON.parse(localStorage.getItem(TRANSACTIONS)) || [],
+    data: JSON.parse(localStorage.getItem(TRANSACTIONS)) || null,
     isFetching: false
   },
   auth: {
